@@ -1,0 +1,154 @@
+@mixin lg-screen {
+  @media only screen and (max-width: 1170px) {
+    @content;
+  }
+}
+@mixin md-screen {
+  @media only screen and (max-width: 1080px) {
+    @content;
+  }
+}
+@mixin sm-screen {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin xs-screen {
+  @media only screen and (max-width: 575px) {
+    @content;
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content;
+  justify-items: center;
+  gap: 0.6em;
+
+  max-width: 1100px;
+  padding: 3em 1em;
+  overflow: hidden;
+
+  .timeHolder {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    gap: 1em;
+
+    user-select: none;
+
+    .time {
+      display: grid;
+      grid-template-columns: repeat(5, max-content);
+
+      font-size: 12em;
+
+      @include lg-screen {
+        font-size: 12em;
+      }
+      @include md-screen {
+        font-size: 8em;
+      }
+      @include sm-screen {
+        font-size: 6em;
+      }
+      @include xs-screen {
+        font-size: 4em;
+      }
+
+      span {
+        font-family: 'Roboto Mono', monospace;
+        transition: font-size 0.3s ease-in-out;
+      }
+      span.digit {
+        width: 1.2em;
+        height: 1em;
+        line-height: 1;
+      }
+      span.separator {
+        width: 0.7em;
+        font-size: 0.9em;
+        line-height: 0.9em;
+
+        &::after {
+          content: ':';
+        }
+      }
+    }
+
+    .utilityContainer {
+      .timePeriod {
+        padding: 1.8em 0 0 0;
+
+        @include lg-screen {
+          padding: 1.8em 0 0 0;
+        }
+        @include md-screen {
+          padding: 1.1em 0 0 0;
+        }
+        @include sm-screen {
+          padding: 0.8em 0 0 0;
+        }
+        @include xs-screen {
+          padding: 0.5em 0 0 0;
+        }
+
+        transition: padding 0.3s ease-in-out;
+
+        .period {
+          color: var(--c-main-subtle);
+
+          font-size: 1.3em;
+
+          @include lg-screen {
+            font-size: 1.3em;
+          }
+          @include md-screen {
+            font-size: 1.2em;
+          }
+          @include sm-screen {
+            font-size: 1em;
+          }
+          @include xs-screen {
+            font-size: 0.8em;
+          }
+
+          text-align: left;
+
+          transition: font-size 0.3s ease-in-out, color 0.6s ease-in-out,
+            font-weight 0.6s ease-in-out;
+
+          &[data-active='true'] {
+            color: var(--c-main);
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+
+  .timeProgress {
+    position: relative;
+    width: 100%;
+    height: 0.6em;
+
+    background-color: var(--c-main-light);
+
+    transition: background-color 0.6s ease-in-out;
+
+    border-radius: 0.1em;
+    overflow: hidden;
+
+    .bar {
+      width: 0;
+      height: inherit;
+
+      background-color: currentColor;
+
+      font-size: inherit;
+      // transition: width 0.1s ease-in-out;
+      border-radius: inherit;
+      overflow: hidden;
+    }
+  }
+}

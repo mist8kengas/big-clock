@@ -1,0 +1,54 @@
+.main {
+  display: grid;
+  grid-template-rows: 1fr max-content;
+  align-items: center;
+
+  min-height: 100vh;
+
+  background-color: var(--c-background);
+  color: var(--c-main);
+
+  transition: background-color 0.6s ease-in-out, color 0.6s ease-in-out;
+
+  // dark mode
+  &[data-dark='true'] {
+    --c-background: #010203;
+    --c-main: #fffafa;
+    --c-main-light: #141415;
+    --c-main-subtle: #5a5a5e;
+  }
+
+  .timeContainer {
+    display: grid;
+    justify-content: center;
+  }
+
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, max-content));
+    justify-content: center;
+    gap: 1em;
+
+    margin: 1.3em;
+
+    button {
+      background-color: transparent;
+      color: inherit;
+
+      padding: 0.6em;
+
+      font-size: 1.6em;
+      border: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      .icon {
+        width: 1em;
+        height: 1em;
+        font-size: inherit;
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Mono&display=swap');
+
+html body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --c-background: #f8f8ff;
+  --c-main: #242124;
+  --c-main-light: #e2dfe2;
+  --c-main-subtle: #8d8d91;
+}
